@@ -33,4 +33,8 @@ class PositionalEncoding(tf.keras.layers.Layer):
         return tf.cast(pos_encoding, tf.float32)
     
     def call(self, inputs):
+        # Convert sparse tensors to dense tensors if needed
+        if isinstance(inputs, tf.sparse.SparseTensor):
+            inputs = tf.sparse.to_dense(inputs)
         return inputs + self.pos_encoding[:, :tf.shape(inputs)[1], :]
+        # return inputs + self.pos_encoding[:, :tf.shape(inputs)[1], :]

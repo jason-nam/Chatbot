@@ -10,8 +10,9 @@ setup(
     install_requires=[
         "numpy",
         "matplotlib",
+        "pandas",
         "pyyaml",
-        "unittest",
+        # "unittest",
         "tensorflow",
         "tensorflow_datasets",
     ],
